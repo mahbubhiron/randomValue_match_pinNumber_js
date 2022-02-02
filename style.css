@@ -1,0 +1,150 @@
+*{
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f3;
+}
+.wrapper {
+display: grid;
+grid-template-columns: 200px 200px 200px 200px;
+justify-content: center;
+margin-top: 20px;
+}
+.random-container{
+grid-column: span 2;
+}
+.random-body{
+background-color: #ecf0f3;
+padding: 15px;
+border-radius: 30px;
+box-shadow: inset 5px 5px 12px #ffffff, 
+        5px 5px 12px rgba(0,0,0,.16);
+margin-right: 10px;
+width: auto;
+height: 560px;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+.random-value-display-field{
+height: 80px;
+width: auto;
+background-color: #ecf0f3;
+box-shadow: inset -5px -5px 12px #ffffff, 
+        inset 5px 5px 12px rgba(0,0,0,.16);
+border: none;
+border-radius: 30px;
+color: rgba(70, 70, 70);
+font-size: 30px;
+text-align: end;
+margin-top: 40px;
+margin-bottom: 30px;
+padding: 20px;
+}
+.random-generate-button{
+height: 120px;
+width: 120px;
+background-color: #d4f1f9;
+box-shadow: -5px -5px 12px #ffffff, 
+         5px 5px 12px rgba(0,0,0,.16);
+border: none;
+border-radius: 50%;
+padding: 5px;
+margin: 50px 93px;
+font-size: 25px;
+font-weight: bold;
+}
+.random-genarate-button:hover{
+transform: scale(1.1);
+background-color: black;
+color: white;
+box-shadow: 5px 5px 8px gray;
+}
+.input-container{
+grid-column: span 2;
+}
+.pin-input-body{
+background-color: #ecf0f3;
+padding: 15px;
+width: auto;
+border-radius: 30px;
+box-shadow: inset 5px 5px 12px #ffffff, 
+        5px 5px 12px rgba(0,0,0,.16);
+display: grid;
+grid-template-columns: repeat(3,73px);
+grid-gap: 8px 60px;
+margin: 0px 18px;
+margin-bottom: 10px;
+}
+.pin-input-field{
+grid-column: span 3;
+height: 80px;
+width: 300px;
+background-color: #ecf0f3;
+box-shadow: inset -5px -5px 12px #ffffff, 
+        inset 5px 5px 12px rgba(0,0,0,.16);
+border: none;
+border-radius: 30px;
+color: rgba(70, 70, 70);
+font-size: 30px;
+text-align: end;
+margin: auto;
+margin-top: 40px;
+margin-bottom: 30px;
+padding: 20px;
+}
+.button{
+height: 70px;
+width: 70px;
+background-color: #ecf0f3;
+box-shadow: -5px -5px 12px #ffffff, 
+         5px 5px 12px rgba(0,0,0,.16);
+border: none;
+border-radius: 50%;
+padding: 9px;
+margin: auto;
+font-size: 25px;
+font-weight: bold;
+}
+.button:hover{
+transform: scale(1.1);
+}
+.eql-btn{
+width: 145px;
+border-radius: 40px;
+background-color: #ecf0f3;
+box-shadow: -5px -5px 12px #ffffff, 
+         5px 5px 12px rgba(0,0,0,.16);
+         width: 300px;
+height: 54px;
+margin: 5px 19px;
+font-size: 25px;
+font-weight: bold;
+border: none;
+}
+.check-container{
+grid-column: span 4;
+margin: auto;
+}
+.pin-chaker-field{
+padding: 15px;
+width: 366px;
+border-radius: 30px;
+display: grid;
+grid-template-rows: repeat(2,73px);
+grid-gap: 0px 40px;
+margin: 0px 18px;
+}
+.pin-match-field{
+width: 330px;
+box-shadow: -5px -5px 12px #ffffff, 
+         5px 5px 12px rgba(0,0,0,.16);
+border: none;
+padding: 9px;
+font-size: 18px;
+font-weight: bold;
+border-radius: 40px;
+height: 60px;
+margin: 5px 0px;
+display: none;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>--Calculator--</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="random-container">
+            <div class="random-body">
+                <div class="random-value-display-field" id="random-value-display-field"></div>
+                <button class="random-generate-button" id="random-generate-button">Generate Pin</button>
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="pin-input-body">
+                <div class="pin-input-field" id="display"></div>
+                <button class="button" id="button">7</button>
+                <button class="button" id="button">8</button>
+                <button class="button" id="button">9</button>
+                <button class="button" id="button">4</button>
+                <button class="button" id="button">5</button>
+                <button class="button" id="button">6</button>
+                <button class="button" id="button">1</button>
+                <button class="button" id="button">2</button>
+                <button class="button" id="button">3</button>
+                <button class="button" id="button">&#8678;</button>
+                <button class="button" id="button">0</button>
+                <button class="button" id="button">c</button>
+                <button class="eql-btn" id="pin-button">submit</button>
+            </div>
+        </div>
+        <div class="check-container">
+            <div class="pin-chaker-field">
+                <button class="pin-match-field" id="dont-match">Pin don't Match, Please try again...!</button>
+                <button class="pin-match-field" id="match">Pin Match, Secrect door is opening for you...!</button>
+            </div>
+        </div>
+      </div>
+    <script>
+
+        const inputDisplay = document.getElementById('display');
+        const inputNumber = document.getElementsByClassName('button');
+        const matchNumber = document.getElementById('match');
+        const dontMatchNumber = document.getElementById('dont-match');
+        const randomButton =document.getElementById('random-generate-button');
+        randomButton.addEventListener('click',function random(){
+            var random = Math.random() * 10000;
+            var result = Math.round(random);
+            displayRandomNumber(result);
+        });
+
+        function displayRandomNumber(n){
+            let randomNumber = document.getElementById('random-value-display-field');
+            randomNumber.innerText = n;
+        }
+
+        const inputPin = document.getElementById('pin-button');
+        inputPin.addEventListener('click', function (){
+            const display = document.getElementById('display').innerText;
+            const randomNumber = document.getElementById('random-value-display-field').innerText;
+            if(display == randomNumber){
+                matchNumber.style.display='block';
+                matchNumber.style.color='red';
+                dontMatchNumber.style.display='none';
+            }else{
+                dontMatchNumber.style.display='block';
+                dontMatchNumber.style.color='red';
+                matchNumber.style.display='none';
+            }
+        });
+
+        for (let i = 0; i < inputNumber.length; i++) {
+            const element = inputNumber[i];
+            element.addEventListener('click',function(e){
+                switch(e.target.innerText){
+                    case 'c':
+                    inputDisplay.innerText = '';
+                        break;
+                    case '⇦':
+                        if(inputDisplay.innerText){
+                            inputDisplay.innerText = inputDisplay.innerText.slice(0, -1);
+                        }
+                        break;
+                    default:
+                    inputDisplay.innerText += e.target.innerText;
+                } 
+            });
+        }
+    </script>
+</body>
+</html>
