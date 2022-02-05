@@ -28,10 +28,12 @@
                 <button class="button" id="button">1</button>
                 <button class="button" id="button">2</button>
                 <button class="button" id="button">3</button>
-                <button class="button" id="button">&#8678;</button>
-                <button class="button" id="button">0</button>
                 <button class="button" id="button">c</button>
+                <button class="button" id="button">0</button>
+                <button class="button" id="button">&#8678;</button>
                 <button class="eql-btn" id="pin-button">submit</button>
+                <p class="try-time" id="time-out">3</p>
+                <p id="try-out-text" class="try-out-text">try left</p>
             </div>
         </div>
         <div class="check-container">
@@ -45,9 +47,15 @@
 
         const inputDisplay = document.getElementById('display');
         const inputNumber = document.getElementsByClassName('button');
+        const inputPin = document.getElementById('pin-button');
         const matchNumber = document.getElementById('match');
         const dontMatchNumber = document.getElementById('dont-match');
+        const timeOut = document.getElementById('time-out');
+        var timeOutCount = timeOut.innerText;
+        var timeOutCountNumber = parseInt(timeOutCount);
+        var tryOutText = document.getElementById('try-out-text');
         const randomButton =document.getElementById('random-generate-button');
+
         randomButton.addEventListener('click',function random(){
             var random = Math.random() * 10000;
             var result = Math.round(random);
@@ -59,18 +67,49 @@
             randomNumber.innerText = n;
         }
 
-        const inputPin = document.getElementById('pin-button');
         inputPin.addEventListener('click', function (){
             const display = document.getElementById('display').innerText;
             const randomNumber = document.getElementById('random-value-display-field').innerText;
+
+            
+
             if(display == randomNumber){
                 matchNumber.style.display='block';
                 matchNumber.style.color='red';
                 dontMatchNumber.style.display='none';
+                timeOut.style.display='none';
+                tryOutText.style.display='none';
+                timeOutCountNumber=3;
+                inputDisplay.innerText = '';
             }else{
+                if(timeOutCountNumber > 0){
+                    timeOut.style.display='block';
+                    tryOutText.style.display='block';
+                    timeOut.innerText = timeOutCountNumber;
+                    inputDisplay.innerText = '';
+                    if(timeOutCountNumber == 3){
+                        timeOut.style.color='#008000';
+                        tryOutText.style.color='#008000';
+                    }else if(timeOutCountNumber == 2){
+                        timeOut.style.color='#ff0000';
+                        tryOutText.style.color='#ff0000';
+                    }else if(timeOutCountNumber == 1){
+                        timeOut.style.color='#ff4d4d';
+                        tryOutText.style.color='#ff4d4d';
+                    }
+                    timeOutCountNumber--;
+                }else{
+                    inputPin.style.display='none';
+                    timeOut.style.display='none';
+                    tryOutText.style.display='none';
+                    timeOut.innerText='';
+                    inputDisplay.innerText = '';
+                }
+                timeOut.style.display='block';
                 dontMatchNumber.style.display='block';
                 dontMatchNumber.style.color='red';
                 matchNumber.style.display='none';
+                inputDisplay.innerText = '';
             }
         });
 
